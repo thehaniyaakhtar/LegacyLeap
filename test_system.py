@@ -114,14 +114,27 @@ def start_backend():
     """Start backend server"""
     print("🚀 Starting backend server...")
     
+    # Store current directory
+    original_dir = os.getcwd()
+    
     # Change to backend directory
     os.chdir("backend")
     
     try:
+        # Use virtual environment python
+        venv_python = os.path.join("venv", "Scripts", "python.exe")
+        if os.path.exists(venv_python):
+            python_cmd = venv_python
+        else:
+            python_cmd = sys.executable
+        
         # Start backend in background
-        process = subprocess.Popen([sys.executable, "main.py"], 
+        process = subprocess.Popen([python_cmd, "main.py"], 
                                  stdout=subprocess.PIPE, 
                                  stderr=subprocess.PIPE)
+        
+        # Restore original directory
+        os.chdir(original_dir)
         
         # Wait a moment for startup
         time.sleep(5)
@@ -135,6 +148,8 @@ def start_backend():
             print(f"❌ Backend failed to start: {stderr.decode()}")
             return None
     except Exception as e:
+        # Restore original directory on error
+        os.chdir(original_dir)
         print(f"❌ Error starting backend: {e}")
         return None
 
@@ -142,14 +157,25 @@ def start_frontend():
     """Start frontend server"""
     print("🚀 Starting frontend server...")
     
+    # Store current directory
+    original_dir = os.getcwd()
+    
     # Change to frontend directory
-    os.chdir("my-legacy-modernizer")
+    frontend_dir = "my-legacy-modernizer"
+    if not os.path.exists(frontend_dir):
+        print(f"❌ Frontend directory '{frontend_dir}' not found")
+        return None
+    
+    os.chdir(frontend_dir)
     
     try:
         # Start frontend in background
         process = subprocess.Popen(["npm", "run", "dev"], 
                                  stdout=subprocess.PIPE, 
                                  stderr=subprocess.PIPE)
+        
+        # Restore original directory
+        os.chdir(original_dir)
         
         # Wait a moment for startup
         time.sleep(10)
@@ -163,6 +189,8 @@ def start_frontend():
             print(f"❌ Frontend failed to start: {stderr.decode()}")
             return None
     except Exception as e:
+        # Restore original directory on error
+        os.chdir(original_dir)
         print(f"❌ Error starting frontend: {e}")
         return None
 

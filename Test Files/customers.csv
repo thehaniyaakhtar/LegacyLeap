@@ -1,0 +1,5 @@
+CustomerID,CustomerName,Phone,Email
+10001,John Doe,555-1234,john@example.com
+10002,Jane Smith,555-5678,jane@example.com
+10003,Raj Kumar,555-2468,raj@example.com
+10004,Maria Lopez,555-1357,maria@example.com

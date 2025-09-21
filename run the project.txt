@@ -1,0 +1,50 @@
+1. Install backend dependencies
+cd backend
+python -m venv venv
+
+# On Windows:
+venv\Scripts\activate
+# On Unix:
+
+# source venv/bin/activate
+
+pip install -r requirements.txt
+
+3. Install frontend dependencies:
+cd ../my-legacy-modernizer
+npm install
+
+4. You can start the system in one of three ways:
+
+A. Using the start script (recommended):
+# On Windows:
+start.bat
+
+# On Unix:
+./start.sh
+
+B. Using the system manager:
+python start_system.py
+
+C. Starting services manually
+# Terminal 1 - Backend
+cd backend
+python main.py
+
+# Terminal 2 - Frontend 
+cd my-legacy-modernizer
+npm run dev
+
+5. Access the application:
+Frontend UI: http://localhost:3000
+Backend API: http://localhost:8000
+API Documentation: http://localhost:8000/docs
+Real-time WebSocket: ws://localhost:8000/ws
+The system will start and automatically launch your browser to the frontend interface. You can then:
+
+Upload AS/400 legacy files
+Transform them to modern formats
+View API specifications
+Generate microservices architecture
+Monitor transformations in real-time
+To stop the system, press Ctrl+C in the terminal window.

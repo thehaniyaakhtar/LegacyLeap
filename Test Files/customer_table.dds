@@ -1,0 +1,6 @@
+     A          R CUSTOMER
+     A            CUSTID        5P 0       COLHDG('Customer ID')
+     A            CUSTNAME     30A         COLHDG('Customer Name')
+     A            PHONE        10A         COLHDG('Phone Number')
+     A            EMAIL        40A         COLHDG('Email Address')
+     A          K CUSTID

@@ -18,6 +18,7 @@ npm install
 
 A. Using the start script (recommended):
 # On Windows:
+cd ..
 start.bat
 
 # On Unix:
@@ -47,4 +48,5 @@ Transform them to modern formats
 View API specifications
 Generate microservices architecture
 Monitor transformations in real-time
+
 To stop the system, press Ctrl+C in the terminal window.

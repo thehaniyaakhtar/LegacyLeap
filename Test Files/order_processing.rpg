@@ -1,0 +1,8 @@
+     H DFTACTGRP(*NO) ACTGRP(*NEW)
+     D OrderId         S              10I 0
+     D CustomerName    S             30A
+     C     *ENTRY        PLIST
+     C                   PARM                    OrderId
+     C                   EVAL      CustomerName = 'Demo Customer'
+     C                   DSPLY                   CustomerName
+     C                   RETURN
